@@ -1,0 +1,68 @@
+<!-- <h1>To Do List</h1>
+<input [(ngModel)]="todo" type="text" >
+<button (click)="addTodo()" >Add</button>
+<br>
+<br>
+@for(i of todos; track i){
+    <table >
+        <tr>
+            <div>{{$index+1}}</div>
+            <div>{{i}}</div>
+            <div><button (click)="handleDelete($index)">delete</button></div>
+        </tr>
+    </table>
+}
+@empty(){
+    <h1>No todos</h1>
+} -->
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-blue-200">
+    <div class="flex justify-center items-center">
+        <div class="w-sm my-14 p-6 rounded-lg shadow-lg bg-white">
+            <h2 class="font-bold text-4xl pb-6">To-do List</h2>
+            <div class="pb-4 flex justify-between items-center">
+                <input [(ngModel)]="todo" type="text" class="bg-gray-300 w-[72%] rounded-2xl p-2"
+                    placeholder="Add Your Task">
+                <button class="border bg-orange-500 rounded-2xl h-10 text-white w-[28%]"
+                    (click)="addTodo()">Add</button>
+            </div>
+
+            @for(i of todo_list; track i.task){
+            <div class="flex justify-between items-center py-2">
+                <div class="flex items-center">
+                    <div class="pr-4">
+                        <label class="flex items-center cursor-pointer relative">
+                            <input type="checkbox" (change)="handleCheck($index)"
+                                class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-red-600 checked:border-red-600"
+                                id="check2" />
+                            <span
+                                class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
+                                    fill="currentColor" stroke="currentColor" stroke-width="1">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                    <div [ngClass]="i.text_decoration" class="font-semibold text-xl text-wrap">
+                        {{i.task}}
+                    </div>
+                </div>
+                <div class="pl-10">
+                    <button (click)="handleDelete($index)"><i class="fa-solid fa-trash"
+                            style="color: #f98806;"></i></button>
+                </div>
+            </div>
+            }
+            @empty(){
+            <h1 class="text-2xl font-bold pt-6">No todos</h1>
+            }
+        </div>
+    </div>
+</body>

@@ -1,0 +1,17 @@
+<button (click)="red()" >red</button>
+<button (click)="gold()" >gold</button>
+<button (click)="green()" >green</button>
+<button (click)="others()" >others</button>
+<input type="text" name="" id="" (input)="type($event)">
+@if(color=='red'){
+    <div style="width: 10rem;height: 10rem;background-color: red;"></div>
+}
+@else if(color=='gold'){
+    <div style="width: 10rem;height: 10rem;background-color: gold"></div>
+}
+@else if(color=='green'){
+    <div style="width: 10rem;height: 10rem;background-color: green"></div>
+}
+@else{
+    <div style="width: 10rem;height: 10rem;background-color: black;"></div>
+}

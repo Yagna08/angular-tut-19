@@ -1,0 +1,6 @@
+<h1>Counter</h1>
+
+<h3>Click + to increment and - to decrement</h3>
+<button  (click)="handleClick(1,$event)">+</button>
+<button (click)="handleClick(0,$event)">-</button>
+<p [ngStyle]="{'color':colour}">counter works! {{count}}</p>
